@@ -1,6 +1,8 @@
 const dotenv = require('dotenv')
 dotenv.config()
 
+console.log('---- test jenkins')
+
 const express = require('express')
 const bodyParser = require('body-parser')
 const compression = require('compression')
