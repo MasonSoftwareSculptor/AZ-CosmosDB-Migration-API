@@ -8,7 +8,7 @@ const createContainer = async (req, res) => {
     const results = await Promise.allSettled(bulkInsertContainer)
 
     res.status(201).json({
-      message: 'Create databse success!',
+      message: 'Create container success!',
       data: {
         dbName,
         successContainers: results.filter(data => data.status === 'fulfilled').map(data => data.value),

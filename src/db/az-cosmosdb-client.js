@@ -32,7 +32,22 @@ const createContainer = async (databaseName, containerName, partitionKey) => {
   }
 }
 
+const bulk = async (databaseName, containerName, operations) => {
+  try {
+    await cosmosClient
+      .database(databaseName)
+      .container(containerName)
+      .items.bulk(operations)
+    console.log(`Insert documents into container ${containerName} successed!`)
+    return containerName
+  } catch (err) {
+    console.log(`Insert document for container ${containerName} error: `, err)
+    throw containerName
+  }
+}
+
 module.exports = {
   createDatabase,
   createContainer,
+  bulk,
 }
